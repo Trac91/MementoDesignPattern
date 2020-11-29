@@ -51,6 +51,8 @@ title __MEMENTODESIGNPATTERN's Class Diagram__\n
   
 
   GUI -up-|> javax.swing.JFrame
+  GUI o-- Caretaker : caretaker
+  GUI o-- Originator : originator
   StudentCaretaker .up.|> Caretaker
   StudentMemento .up.|> Memento
   StudentOriginator .up.|> Originator

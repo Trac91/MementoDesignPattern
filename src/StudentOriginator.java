@@ -48,6 +48,7 @@ public class StudentOriginator implements Originator{
         this.gpa = gpa;
     }
 
-
-
+    public Float getGpa() {
+        return gpa;
+    }
 }

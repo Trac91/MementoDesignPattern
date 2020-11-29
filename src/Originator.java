@@ -8,4 +8,5 @@ public interface Originator {
     void setGpa(float gpa);
 
 
+
 }

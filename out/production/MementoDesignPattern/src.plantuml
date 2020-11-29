@@ -1,6 +1,6 @@
 @startuml
-
 skinparam classAttributeIconSize 0
+
 
     interface Caretaker {
         {static} + savedStudents : ArrayList<Memento>
@@ -13,14 +13,15 @@ skinparam classAttributeIconSize 0
     }
 
     class GUI {
-        + btnSave : JButton
         + dob : JTextArea
         + gpa : JTextArea
         + name : JTextArea
-        + studentRecords : ArrayList
         + tNumber : JTextArea
         ~ currentDetails : int
         ~ savedStudentDetails : int
+        - btnRedo : JButton
+        - btnSave : JButton
+        - btnUndo : JButton
         + GUI()
     }
 
@@ -33,6 +34,7 @@ skinparam classAttributeIconSize 0
     }
 
     interface Originator {
+        {abstract} + Restore()
         {abstract} + Save()
         {abstract} + setGpa()
     }
@@ -57,26 +59,22 @@ skinparam classAttributeIconSize 0
         + Restore()
         + Save()
         + StudentOriginator()
-        + addStudent()
-        + getDob()
-        + getGpa()
-        + getName()
-        + getTNumber()
-        + removeStudent()
-        + setDob()
+        + StudentOriginator()
         + setGpa()
-        + setGpa()
-        + setName()
-        + settNumber()
         + toString()
     }
 
+  
+
   GUI -up-|> javax.swing.JFrame
+  GUI o-- Caretaker : caretaker
+  GUI o-- Originator : originator
   GUI +-down- GUI.ButtonListener
   GUI.ButtonListener .up.|> java.awt.event.ActionListener
   StudentCaretaker .up.|> Caretaker
   StudentMemento .up.|> Memento
   StudentOriginator .up.|> Originator
+
 
 
 

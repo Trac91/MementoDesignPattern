@@ -14,10 +14,10 @@ public class GUI extends JFrame {
 
     private JButton btnSave, btnUndo, btnRedo;
     // Create Text Area for input
-    public JTextArea tNumber = new JTextArea(1, 40);
-    public JTextArea name = new JTextArea(1, 40);
-    public JTextArea dob = new JTextArea(1, 40);
-    public JTextArea gpa = new JTextArea(1, 40);
+    private JTextArea tNumber = new JTextArea(1, 40);
+    private JTextArea name = new JTextArea(1, 40);
+    private JTextArea dob = new JTextArea(1, 40);
+    private JTextArea gpa = new JTextArea(1, 40);
 
     public GUI(){
 
@@ -78,17 +78,19 @@ public class GUI extends JFrame {
                 System.out.println("Saving Student\n" + "Student TNumber: " + txtTNumber +"\n" +
                         "Name: " + txtName + "\n" + "DOB: " + txtDOB + "\n" +"GPA: " + txtGPA);
                 btnUndo.setEnabled(true);
+
             }else if (e.getSource() == btnUndo) {
+
                 if (currentDetails >= 1) {
 
               currentDetails--;
 
-                    Float txtGPA = originator.Restore(caretaker.getMemento(currentDetails));
+              Float txtGPA = originator.Restore(caretaker.getMemento(currentDetails));
 
-                     gpa.setText(txtGPA.toString());
+              gpa.setText(txtGPA.toString());
 
+              btnRedo.setEnabled(true);
 
-                    btnRedo.setEnabled(true);
                 } else {
 
                     btnUndo.setEnabled(false);
@@ -103,6 +105,7 @@ public class GUI extends JFrame {
                 gpa.setText(txtGPA.toString());
 
                 btnUndo.setEnabled(true);
+
             }else{
                 btnRedo.setEnabled(false);
             }
