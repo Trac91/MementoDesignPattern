@@ -1,6 +1,18 @@
 @startuml
+
 skinparam classAttributeIconSize 0
-    class College {
+
+    interface Caretaker {
+        {static} + savedStudents : ArrayList<Memento>
+        {abstract} + addMemento()
+        {abstract} + getMemento()
+    }
+
+    class Driver {
+        {static} + main()
+    }
+
+    class GUI {
         + btnSave : JButton
         + dob : JTextArea
         + gpa : JTextArea
@@ -9,25 +21,42 @@ skinparam classAttributeIconSize 0
         + tNumber : JTextArea
         ~ currentDetails : int
         ~ savedStudentDetails : int
-        + College()
+        + GUI()
     }
 
-    class College.ButtonListener {
+    class GUI.ButtonListener {
         + actionPerformed()
-}
+    }
 
-    class Driver {
-        {static} + main()
+    interface Memento {
+        {abstract} + getGpa()
+    }
 
-  }
+    interface Originator {
+        {abstract} + Save()
+        {abstract} + setGpa()
+    }
 
-    class Student {
-        + dob : String
-        + gpa : Float
-        + name : String
-        + studentRecords : ArrayList
-        + tNumber : String
-        + Student()
+    class StudentCaretaker {
+        + addMemento()
+        + getMemento()
+    }
+
+    class StudentMemento {
+        - gpa : float
+        + StudentMemento()
+        + getGpa()
+    }
+
+    class StudentOriginator {
+        - dob : String
+        - gpa : Float
+        - name : String
+        - studentRecords : ArrayList
+        - tNumber : String
+        + Restore()
+        + Save()
+        + StudentOriginator()
         + addStudent()
         + getDob()
         + getGpa()
@@ -36,17 +65,18 @@ skinparam classAttributeIconSize 0
         + removeStudent()
         + setDob()
         + setGpa()
+        + setGpa()
         + setName()
         + settNumber()
         + toString()
     }
 
-  
-
-  College -up-|> javax.swing.JFrame
-  College +-down- College.ButtonListener
-  College.ButtonListener .up.|> java.awt.event.ActionListener
-  Student -up-|> College
+  GUI -up-|> javax.swing.JFrame
+  GUI +-down- GUI.ButtonListener
+  GUI.ButtonListener .up.|> java.awt.event.ActionListener
+  StudentCaretaker .up.|> Caretaker
+  StudentMemento .up.|> Memento
+  StudentOriginator .up.|> Originator
 
 
 

@@ -7,10 +7,13 @@ public class GUI extends JFrame {
 
     public ArrayList studentRecords = new ArrayList();
 
+    Caretaker caretaker = new StudentCaretaker();
+    Originator originator = new StudentOriginator();
+
     int savedStudentDetails = 0;
     int currentDetails=0;
 
-    public JButton btnSave;
+    private JButton btnSave, btnUndo, btnRedo;
     // Create Text Area for input
     public JTextArea tNumber = new JTextArea(1, 40);
     public JTextArea name = new JTextArea(1, 40);
@@ -35,11 +38,21 @@ public class GUI extends JFrame {
         jPanel.add(gpa);
 
         ButtonListener saveListener = new ButtonListener();
+        ButtonListener undoListener = new ButtonListener();
+        ButtonListener redoListener = new ButtonListener();
 
         btnSave = new JButton("Save");
         btnSave.addActionListener(saveListener);
 
+        btnUndo = new JButton("Undo");
+        btnUndo.addActionListener(undoListener);
+
+        btnRedo = new JButton("Redo");
+        btnRedo.addActionListener(redoListener);
+
         jPanel.add(btnSave);
+        jPanel.add(btnUndo);
+        jPanel.add(btnRedo);
 
         this.add(jPanel);
         this.setVisible(true);
@@ -55,6 +68,7 @@ public class GUI extends JFrame {
                 String txtDOB = dob.getText();
                 Float txtGPA = Float.valueOf(gpa.getText());
 
+                
                 savedStudentDetails++;
                 currentDetails++;
                 // Add Student Details to the array list

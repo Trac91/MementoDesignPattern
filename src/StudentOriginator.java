@@ -17,47 +17,13 @@ public class StudentOriginator implements Originator{
         this.gpa = gpa;
     }
 
-    public String getTNumber() {
-        return tNumber;
-    }
-
-    public void settNumber(String tNumber) {
+    public StudentOriginator() {
         this.tNumber = tNumber;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDob() {
-        return dob;
-    }
-
-    public void setDob(String dob) {
         this.dob = dob;
-    }
-
-    public Float getGpa() {
-        return gpa;
-    }
-
-    public void setGpa(Float gpa) {
         this.gpa = gpa;
     }
 
-    public void addStudent(String tNumber,String name,String dob, float gpa){
-       studentRecords.add(new StudentOriginator(tNumber,name,dob,gpa));
-        System.out.println("Adding student");
-    }
-
-    public void removeStudent(int index){
-        studentRecords.remove(index);
-        System.out.println("Removing Student");
-    }
     @Override
     public String toString(){
         String strStudent ="Current Student: " + this.tNumber + " , " + this.name + " , " + this.dob + " , " + this.gpa;
@@ -73,7 +39,6 @@ public class StudentOriginator implements Originator{
         this.gpa = gpa;
         return memento;
     }
-
 
     @Override
     public void setGpa(float gpa) {

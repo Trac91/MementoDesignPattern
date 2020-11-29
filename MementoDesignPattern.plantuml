@@ -3,7 +3,7 @@
 title __MEMENTODESIGNPATTERN's Class Diagram__\n
 
   namespace  {
-    class College {
+    interface Caretaker {
     }
   }
   
@@ -15,7 +15,25 @@ title __MEMENTODESIGNPATTERN's Class Diagram__\n
   
 
   namespace  {
+    class GUI {
+    }
+  }
+  
+
+  namespace  {
     interface Memento {
+    }
+  }
+  
+
+  namespace  {
+    interface Originator {
+    }
+  }
+  
+
+  namespace  {
+    class StudentCaretaker {
     }
   }
   
@@ -32,8 +50,10 @@ title __MEMENTODESIGNPATTERN's Class Diagram__\n
   }
   
 
-  College -up-|> javax.swing.JFrame
+  GUI -up-|> javax.swing.JFrame
+  StudentCaretaker .up.|> Caretaker
   StudentMemento .up.|> Memento
+  StudentOriginator .up.|> Originator
 
 
 right footer

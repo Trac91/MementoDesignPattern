@@ -1,7 +1,18 @@
 @startuml
+
 skinparam classAttributeIconSize 0
 
-    class College {
+    interface Caretaker {
+        {static} + savedStudents : ArrayList<Memento>
+        {abstract} + addMemento()
+        {abstract} + getMemento()
+    }
+
+    class Driver {
+        {static} + main()
+    }
+
+    class GUI {
         + btnSave : JButton
         + dob : JTextArea
         + gpa : JTextArea
@@ -10,15 +21,25 @@ skinparam classAttributeIconSize 0
         + tNumber : JTextArea
         ~ currentDetails : int
         ~ savedStudentDetails : int
-        + College()
+        + GUI()
     }
 
-    class College.ButtonListener {
+    class GUI.ButtonListener {
         + actionPerformed()
     }
 
     interface Memento {
         {abstract} + getGpa()
+    }
+
+    interface Originator {
+        {abstract} + Save()
+        {abstract} + setGpa()
+    }
+
+    class StudentCaretaker {
+        + addMemento()
+        + getMemento()
     }
 
     class StudentMemento {
@@ -33,6 +54,8 @@ skinparam classAttributeIconSize 0
         - name : String
         - studentRecords : ArrayList
         - tNumber : String
+        + Restore()
+        + Save()
         + StudentOriginator()
         + addStudent()
         + getDob()
@@ -42,15 +65,18 @@ skinparam classAttributeIconSize 0
         + removeStudent()
         + setDob()
         + setGpa()
+        + setGpa()
         + setName()
         + settNumber()
         + toString()
     }
 
-  College -up-|> javax.swing.JFrame
-  College +-down- College.ButtonListener
-  College.ButtonListener .up.|> java.awt.event.ActionListener
+  GUI -up-|> javax.swing.JFrame
+  GUI +-down- GUI.ButtonListener
+  GUI.ButtonListener .up.|> java.awt.event.ActionListener
+  StudentCaretaker .up.|> Caretaker
   StudentMemento .up.|> Memento
+  StudentOriginator .up.|> Originator
 
 
 
