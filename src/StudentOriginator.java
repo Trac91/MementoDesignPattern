@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class StudentOriginator {
+public class StudentOriginator implements Originator{
 
     private String tNumber;
     private String name;
@@ -67,6 +67,17 @@ public class StudentOriginator {
     public StudentMemento Save(){
         System.out.println("Student Originator - Now Saving Memento.......");
         return new StudentMemento(this.gpa);
+    }
+
+    public Memento Restore(Memento memento){
+        this.gpa = gpa;
+        return memento;
+    }
+
+
+    @Override
+    public void setGpa(float gpa) {
+        this.gpa = gpa;
     }
 
 
