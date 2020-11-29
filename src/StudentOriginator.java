@@ -1,12 +1,14 @@
 import java.util.ArrayList;
 
-public class StudentOriginator extends College{
+public class StudentOriginator {
 
-    public String tNumber;
-    public String name;
-    public String dob;
-    public Float gpa;
-    public ArrayList studentRecords;
+    private String tNumber;
+    private String name;
+    private String dob;
+    private Float gpa;
+
+
+    private ArrayList studentRecords;
 
     public StudentOriginator(String tNumber, String name, String dob, float gpa){
         this.tNumber = tNumber;

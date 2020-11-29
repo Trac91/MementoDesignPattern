@@ -15,13 +15,25 @@ title __MEMENTODESIGNPATTERN's Class Diagram__\n
   
 
   namespace  {
+    interface Memento {
+    }
+  }
+  
+
+  namespace  {
+    class StudentMemento {
+    }
+  }
+  
+
+  namespace  {
     class StudentOriginator {
     }
   }
   
 
   College -up-|> javax.swing.JFrame
-  StudentOriginator -up-|> College
+  StudentMemento .up.|> Memento
 
 
 right footer

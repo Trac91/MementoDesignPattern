@@ -1,5 +1,6 @@
 @startuml
 skinparam classAttributeIconSize 0
+
     class College {
         + btnSave : JButton
         + dob : JTextArea
@@ -14,19 +15,24 @@ skinparam classAttributeIconSize 0
 
     class College.ButtonListener {
         + actionPerformed()
-}
+    }
 
-    class Driver {
-        {static} + main()
+    interface Memento {
+        {abstract} + getGpa()
+    }
 
-  }
+    class StudentMemento {
+        - gpa : float
+        + StudentMemento()
+        + getGpa()
+    }
 
     class StudentOriginator {
-        + dob : String
-        + gpa : Float
-        + name : String
-        + studentRecords : ArrayList
-        + tNumber : String
+        - dob : String
+        - gpa : Float
+        - name : String
+        - studentRecords : ArrayList
+        - tNumber : String
         + StudentOriginator()
         + addStudent()
         + getDob()
@@ -41,12 +47,10 @@ skinparam classAttributeIconSize 0
         + toString()
     }
 
-  
-
   College -up-|> javax.swing.JFrame
   College +-down- College.ButtonListener
   College.ButtonListener .up.|> java.awt.event.ActionListener
-  StudentOriginator -up-|> College
+  StudentMemento .up.|> Memento
 
 
 
