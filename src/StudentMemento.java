@@ -1,5 +1,5 @@
 
-public class StudentMemento {
+public class StudentMemento implements Memento {
     private float gpa;
 
     public StudentMemento(float gpa){
