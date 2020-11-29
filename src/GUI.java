@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class College extends JFrame {
+public class GUI extends JFrame {
 
     public ArrayList studentRecords = new ArrayList();
 
@@ -17,7 +17,7 @@ public class College extends JFrame {
     public JTextArea dob = new JTextArea(1, 40);
     public JTextArea gpa = new JTextArea(1, 40);
 
-    public College(){
+    public GUI(){
 
         this.setSize(600, 750);
         this.setTitle("ITTralee");

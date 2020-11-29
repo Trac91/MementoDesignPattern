@@ -68,6 +68,6 @@ public class StudentOriginator {
         System.out.println("Student Originator - Now Saving Memento.......");
         return new StudentMemento(this.gpa);
     }
-    
+
 
 }
