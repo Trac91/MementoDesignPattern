@@ -64,4 +64,10 @@ public class StudentOriginator {
         return strStudent;
     }
 
+    public StudentMemento Save(){
+        System.out.println("Student Originator - Now Saving Memento.......");
+        return new StudentMemento(this.gpa);
+    }
+    
+
 }
