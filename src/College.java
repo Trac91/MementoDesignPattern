@@ -58,7 +58,7 @@ public class College extends JFrame {
                 savedStudentDetails++;
                 currentDetails++;
                 // Add Student Details to the array list
-                studentRecords.add(new Student(txtTNumber,txtName,txtDOB,txtGPA));
+                studentRecords.add(new StudentOriginator(txtTNumber,txtName,txtDOB,txtGPA));
 
                 // Printing out the student details
                 System.out.println("Saving Student\n" + "Student TNumber: " + txtTNumber +"\n" +

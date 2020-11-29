@@ -15,13 +15,13 @@ title __MEMENTODESIGNPATTERN's Class Diagram__\n
   
 
   namespace  {
-    class Student {
+    class StudentOriginator {
     }
   }
   
 
   College -up-|> javax.swing.JFrame
-  Student -up-|> College
+  StudentOriginator -up-|> College
 
 
 right footer

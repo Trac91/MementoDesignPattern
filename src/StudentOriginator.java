@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Student extends College{
+public class StudentOriginator extends College{
 
     public String tNumber;
     public String name;
@@ -8,7 +8,7 @@ public class Student extends College{
     public Float gpa;
     public ArrayList studentRecords;
 
-    public Student (String tNumber, String name,  String dob,float gpa){
+    public StudentOriginator(String tNumber, String name, String dob, float gpa){
         this.tNumber = tNumber;
         this.name = name;
         this.dob = dob;
@@ -48,7 +48,7 @@ public class Student extends College{
     }
 
     public void addStudent(String tNumber,String name,String dob, float gpa){
-       studentRecords.add(new Student(tNumber,name,dob,gpa));
+       studentRecords.add(new StudentOriginator(tNumber,name,dob,gpa));
         System.out.println("Adding student");
     }
 
