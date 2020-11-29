@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public class GUI extends JFrame {
 
-    public ArrayList studentRecords = new ArrayList();
 
     Caretaker caretaker = new StudentCaretaker();
     Originator originator = new StudentOriginator();
@@ -66,24 +65,47 @@ public class GUI extends JFrame {
                 String txtTNumber = tNumber.getText();
                 String txtName = name.getText();
                 String txtDOB = dob.getText();
-                Float txtGPA = Float.valueOf(gpa.getText());
+                float txtGPA = Float.parseFloat(gpa.getText());
 
-                
+                originator.setGpa(txtGPA);
+                caretaker.addMemento(originator.Save());
+
                 savedStudentDetails++;
                 currentDetails++;
-                // Add Student Details to the array list
-                studentRecords.add(new StudentOriginator(txtTNumber,txtName,txtDOB,txtGPA));
 
                 // Printing out the student details
+                System.out.println("Save Student " + savedStudentDetails);
                 System.out.println("Saving Student\n" + "Student TNumber: " + txtTNumber +"\n" +
                         "Name: " + txtName + "\n" + "DOB: " + txtDOB + "\n" +"GPA: " + txtGPA);
-                System.out.println(studentRecords.toString());
+                btnUndo.setEnabled(true);
+            }else if (e.getSource() == btnUndo) {
+                if (currentDetails >= 1) {
+
+              currentDetails--;
+
+                    Float txtGPA = originator.Restore(caretaker.getMemento(currentDetails));
+
+                     gpa.setText(txtGPA.toString());
 
 
+                    btnRedo.setEnabled(true);
+                } else {
+
+                    btnUndo.setEnabled(false);
+                }
+            }else if(e.getSource()== btnRedo){
+
+                if((savedStudentDetails -1) > currentDetails){
+                    currentDetails++;
+                }
+                Float txtGPA = originator.Restore(caretaker.getMemento(currentDetails));
+
+                gpa.setText(txtGPA.toString());
+
+                btnUndo.setEnabled(true);
+            }else{
+                btnRedo.setEnabled(false);
             }
         }
-
-
     }
-
 }

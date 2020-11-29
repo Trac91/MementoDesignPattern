@@ -34,16 +34,20 @@ public class StudentOriginator implements Originator{
         System.out.println("Student Originator - Now Saving Memento.......");
         return new StudentMemento(this.gpa);
     }
+@Override
+    public Float Restore(Memento memento){
+        this.gpa = memento.getGpa();
+    System.out.println("From Originator: Previous GPA Saved in Memento\n"+gpa + "\n");
 
-    public Memento Restore(Memento memento){
-        this.gpa = gpa;
-        return memento;
+    return gpa;
     }
 
     @Override
     public void setGpa(float gpa) {
+        System.out.println("From Originator: Current Version of GPA\n"+gpa+ "\n");
         this.gpa = gpa;
     }
+
 
 
 }
