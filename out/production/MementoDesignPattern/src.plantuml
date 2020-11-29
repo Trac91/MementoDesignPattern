@@ -1,0 +1,53 @@
+@startuml
+skinparam classAttributeIconSize 0
+    class College {
+        + btnSave : JButton
+        + dob : JTextArea
+        + gpa : JTextArea
+        + name : JTextArea
+        + studentRecords : ArrayList
+        + tNumber : JTextArea
+        ~ currentDetails : int
+        ~ savedStudentDetails : int
+        + College()
+    }
+
+    class College.ButtonListener {
+        + actionPerformed()
+}
+
+    class Driver {
+        {static} + main()
+
+  }
+
+    class Student {
+        + dob : String
+        + gpa : Float
+        + name : String
+        + studentRecords : ArrayList
+        + tNumber : String
+        + Student()
+        + addStudent()
+        + getDob()
+        + getGpa()
+        + getName()
+        + getTNumber()
+        + removeStudent()
+        + setDob()
+        + setGpa()
+        + setName()
+        + settNumber()
+        + toString()
+    }
+
+  
+
+  College -up-|> javax.swing.JFrame
+  College +-down- College.ButtonListener
+  College.ButtonListener .up.|> java.awt.event.ActionListener
+  Student -up-|> College
+
+
+
+@enduml

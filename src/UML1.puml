@@ -1,0 +1,28 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+
+class Student {
++ tNumber: String
++ name: String
++ address: String
++ dob: String
++ gpa: Float
++ addStudent(): void
++ removeStudent(): void
++ toString(): String
+}
+
+class GUI{
+savedStudents: ArrayList[]
+
+
+}
+
+class Driver{
+
+}
+
+
+
+@enduml
